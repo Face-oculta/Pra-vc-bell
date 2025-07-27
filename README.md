@@ -147,6 +147,7 @@
       z-index: 12;
       text-align: center;
       font-size: 2rem;
+      margin: 0 auto; /* Centraliza o container */
     }
 
     #light-overlay {
@@ -201,7 +202,7 @@
     </div>
   </div>
 
-  <div class="container" id="closing-message">
+  <div class="container" id="closing-message" style="text-align: center; margin: 0 auto;">
     <p>A mágica do pedido chegou ao fim,</p>
     <p>mas nossa história mágica acaba de começar. ✨💖</p>
   </div>
