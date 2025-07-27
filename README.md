@@ -7,9 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      box-sizing: border-box; /* Adiciona box-sizing para todos os elementos */
     }
 
     :root {
@@ -18,57 +16,59 @@
       --font-final: clamp(1.5rem, 4vw, 2rem);
     }
 
-    html, body {
-      height: 100%;
-      width: 100%;
-      overflow-x: hidden;
-    }
-
     body {
+      margin: 0;
+      padding: 0;
       font-family: 'Quicksand', sans-serif;
-      color: #000000;
-      position: relative;
-    }
-
-    /* Fundo fixo via pseudo-elemento */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: url('https://i.postimg.cc/j53Ds1jq/Olhos-intensos-e-Hello-Kitty.png') no-repeat center center;
+      background: url('https://i.postimg.cc/j53Ds1jq/Olhos-intensos-e-Hello-Kitty.png') no-repeat center center fixed;
       background-size: cover;
-      z-index: -2;
+      color: #000000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      width: 100%; /* Garante que o body ocupe 100% da largura */
     }
 
     .overlay-bg {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(255, 255, 255, 0.4);
-      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.4); /* Transparência aumentada */
+      z-index: 1;
+      display: none;
     }
 
     .container {
-      width: 100%;
-      max-width: 700px;
       padding: 30px 20px;
-      margin: 0 auto;
+      max-width: 700px;
+      width: 100%; /* Garante que o container ocupe 100% da largura do viewport */
+      animation: fadeIn 1s ease;
       border-radius: 16px;
+      margin: 20px; /* Margem para evitar que o container encoste nas bordas da tela */
       position: relative;
       z-index: 2;
-      animation: fadeIn 1s ease;
+    }
+
+    #main-content, #response, #closing-message {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
       font-family: 'Pacifico', cursive;
       font-size: var(--font-title);
       color: #d6336c;
-      margin-top: 60px;
+      margin-top: 100px;
       animation: bounce 1.5s infinite alternate;
     }
 
@@ -87,13 +87,10 @@
 
     .buttons {
       margin-top: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
     }
 
     button {
+      margin: 10px;
       padding: 12px 24px;
       font-size: var(--font-base);
       background-color: #ff99bb;
@@ -118,13 +115,11 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      flex-direction: column;
       min-height: 200px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      z-index: 12;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+      position: relative;
+      flex-direction: column;
     }
 
     @keyframes pulse {
@@ -145,11 +140,8 @@
       100% { transform: translateY(-150px); opacity: 0; }
     }
 
-    #main-content, #response, #closing-message {
-      display: none;
-    }
-
     #closing-message {
+      display: none;
       opacity: 0;
       transition: opacity 3s ease-in-out;
       z-index: 12;
@@ -160,8 +152,8 @@
     #light-overlay {
       position: fixed;
       inset: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       background: white;
       opacity: 0;
       pointer-events: none;
@@ -171,8 +163,8 @@
 
     @media (max-width: 600px) {
       h1 { font-size: 2rem; }
-      .final, .message-final { font-size: 1.5rem; }
-      .buttons { flex-direction: column; }
+      .final { font-size: 1.5rem; }
+      .message-final { font-size: 1.5rem; }
     }
   </style>
 </head>
@@ -194,6 +186,7 @@
     <p>Cada batida do meu coração sussurra seu nome, como se ele soubesse desde sempre que foi feito pra te amar. Você é a melodia mais doce da minha vida, meu porto seguro, minha paz em meio ao caos.</p>
     <p>Com você, dá vontade de lutar, os desafios se tornam mais fáceis, os sonhos mais possíveis e a felicidade ainda maior. Quero dividir risadas, te apoiar nos momentos difíceis, ser seu porto seguro e multiplicar momentos inesquecíveis.</p>
     <p>Se pudesse, eu te daria o universo inteiro. Mas como não posso, entrego o que tenho de mais puro e verdadeiro: meu coração. 💖</p>
+
     <p class="final">Bell meu amor... você aceita namorar comigo? 🥹💗</p>
     <div class="buttons">
       <button onclick="showResponse()">Sim, eu aceito!</button>
