@@ -29,7 +29,7 @@
       text-align: center;
       overflow-x: hidden;
       position: relative;
-      min-height: 100vh;
+      min-height: 100vh; /* Garante que o body ocupe pelo menos 100% da altura da tela */
       width: 100%; /* Garante que o body ocupe 100% da largura */
     }
 
