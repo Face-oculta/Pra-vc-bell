@@ -187,7 +187,7 @@
     <p>Com você, dá vontade de lutar, os desafios se tornam mais fáceis, os sonhos mais possíveis e a felicidade ainda maior. Quero dividir risadas, te apoiar nos momentos difíceis, ser seu porto seguro e multiplicar momentos inesquecíveis.</p>
     <p>Se pudesse, eu te daria o universo inteiro. Mas como não posso, entrego o que tenho de mais puro e verdadeiro: meu coração. 💖</p>
 
-    <p class="final">Bell meu amor... você aceita namorar comigo? 🥹💗</p>
+    <p class="final">Bell meu amor... você aceita namorar comigo? <span style="display: inline;">🥹💗</span></p>
     <div class="buttons">
       <button onclick="showResponse()">Sim, eu aceito!</button>
       <button onclick="showResponse()">Claro, amor!</button>
